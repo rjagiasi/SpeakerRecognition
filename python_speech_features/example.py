@@ -10,7 +10,10 @@ mfcc_feat = mfcc(sig,rate)
 d_mfcc_feat = delta(mfcc_feat, 2)
 fbank_feat = logfbank(sig,rate)
 
-myList = mfcc_feat[2:3,:][0]
-myString = ','.join([str(i) for i in myList])
-myString += ",english.wav"
-print(myString)
+myList = mfcc_feat[1:40,:]
+for cur_list in myList:
+	myString = ','.join([str(i) for i in cur_list])
+	myString += ",english.wav"
+	print(myString)
+
+# a e f g l m 

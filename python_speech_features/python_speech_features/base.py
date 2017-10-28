@@ -5,8 +5,8 @@ import numpy
 from python_speech_features import sigproc
 from scipy.fftpack import dct
 
-def mfcc(signal,samplerate=16000,winlen=0.025,winstep=0.01,numcep=13,
-         nfilt=26,nfft=512,lowfreq=0,highfreq=None,preemph=0.97,ceplifter=22,appendEnergy=True,
+def mfcc(signal,samplerate=16000,winlen=0.025,winstep=0.01,numcep=20,
+         nfilt=20,nfft=512,lowfreq=0,highfreq=None,preemph=0.97,ceplifter=22,appendEnergy=True,
          winfunc=lambda x:numpy.ones((x,))):
     """Compute MFCC features from an audio signal.
 
