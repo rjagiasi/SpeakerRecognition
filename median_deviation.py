@@ -1,3 +1,6 @@
+# Calculates Percentage Median deviation within the same user different voice samples.
+# python feature_extract.py | python median_deviation.py
+
 import sys
 import numpy as np
 from statsmodels import robust
@@ -23,4 +26,9 @@ for person, mad_median_values in mad_median.items():
 	for x in range(0, len(mad_median_values[0])):
 		percentage_deviation.setdefault(person, []).append((mad_median_values[1][x]/mad_median_values[0][x])*100)
 
-print(percentage_deviation)
+# print(percentage_deviation)
+for person, deviation in percentage_deviation.items():
+	myStringOutput = person
+	for x in deviation:
+		myStringOutput += ',' + str(x)
+	print(myStringOutput)
