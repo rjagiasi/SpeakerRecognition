@@ -1,5 +1,6 @@
 # Gives Student's T Test among itself and other users
 # python feature_extract.py | python median_deviation.py
+# This file is useless!
 
 import sys
 import numpy as np

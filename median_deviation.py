@@ -1,5 +1,6 @@
 # Calculates Percentage Median deviation within the same user different voice samples.
 # python feature_extract.py | python median_deviation.py
+# This file is useless! 
 
 import sys
 import numpy as np
