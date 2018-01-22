@@ -18,7 +18,7 @@ for file in os.listdir(directory):
 		(rate,sig) = wav.read(os.path.join(directory, file))
 		mfcc_feat = mfcc(sig,rate)
 		d_mfcc_feat = delta(mfcc_feat, 2)
-		# fbank_feat = logfbank(sig,rate)
+		fbank_feat = logfbank(sig,rate)
 		myList = mfcc_feat[11:51,:]
 
 		filename = file.split("_")[0]
@@ -27,7 +27,7 @@ for file in os.listdir(directory):
 		else:
 			filename = int(filename[3:])
 
-		print("dmfcc - " + str(d_mfcc_feat.shape))
+		print("dmfcc - " + str(fbank_feat.shape))
 		print("mfcc - " + str(mfcc_feat.shape))
 		# for cur_list in myList:
 		# 	# if "F001" in file:
