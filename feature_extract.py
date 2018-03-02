@@ -7,6 +7,8 @@ from python_speech_features import mfcc
 from python_speech_features import delta
 from python_speech_features import logfbank
 import scipy.io.wavfile as wav
+import matplotlib.pyplot as plt
+import librosa.display as display
 
 directory = os.path.join(os.getcwd(), 'data_thuyg20_sre/test')
 # directory = os.path.join(os.getcwd(), 'data_thuyg20_sre/enroll')
@@ -27,11 +29,17 @@ for file in os.listdir(directory):
 		else:
 			filename = int(filename[3:])
 
-		print("dmfcc - " + str(fbank_feat.shape))
-		print("mfcc - " + str(mfcc_feat.shape))
+		# print("dmfcc - " + str(fbank_feat.shape))
+		# print("mfcc - " + str(mfcc_feat.shape))
 		# for cur_list in myList:
 		# 	# if "F001" in file:
 		# 		myString = ','.join([str(i) for i in cur_list])
 		# 		myString += ','+str(filename)
 		# 		print(myString)
 		# print(d_mfcc_feat[1:3,:])
+		
+		plt.figure(figsize=(10, 4))
+		display.specshow(mfcc_feat, x_axis='time')
+		plt.colorbar()
+		plt.title('MFCC')
+		plt.tight_layout()
