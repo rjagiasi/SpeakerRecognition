@@ -5,7 +5,7 @@ import numpy
 from python_speech_features import sigproc
 from scipy.fftpack import dct
 
-def mfcc(signal,samplerate=16000,winlen=0.032,winstep=0.016,numcep=13,
+def mfcc(signal,samplerate=16000,winlen=0,winstep=0.01,numcep=13,
          nfilt=50,nfft=2048,lowfreq=0,highfreq=None,preemph=0.95,ceplifter=22,appendEnergy=True,
          winfunc=lambda x:numpy.ones((x,))):
     """Compute MFCC features from an audio signal.
@@ -25,7 +25,7 @@ def mfcc(signal,samplerate=16000,winlen=0.032,winstep=0.016,numcep=13,
     :param winfunc: the analysis window to apply to each frame. By default no window is applied. You can use numpy window functions here e.g. winfunc=numpy.hamming
     :returns: A numpy array of size (NUMFRAMES by numcep) containing features. Each row holds 1 feature vector.
     """
-    feat,energy = fbank(signal,samplerate,winlen,winstep,nfilt,nfft,lowfreq,highfreq,preemph,winfunc)
+    feat,energy = fbank(signal,samplerate,winlen,winstep,nfilt,2048,lowfreq,highfreq,preemph,winfunc)
     feat = numpy.log(feat)
     feat = dct(feat, type=2, axis=1, norm='ortho')[:,:numcep]
     feat = lifter(feat,ceplifter)
