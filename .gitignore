@@ -3,3 +3,4 @@ pyAudioAnalysis/
 speechpy/
 python_speech_features/sound_files/*
 voices_processed/
+raw/
