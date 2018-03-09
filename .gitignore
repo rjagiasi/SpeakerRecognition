@@ -2,3 +2,5 @@ data_thuyg20_sre/
 pyAudioAnalysis/
 speechpy/
 python_speech_features/sound_files/*
+voices_processed/
+WebApp/env/
