@@ -15,6 +15,6 @@ virtualenv env
 pip install Flask
 
 # serve files at localhost:5000
-export FLASK_APP=run.py
+export FLASK_APP=app.py
 flask run
 ```

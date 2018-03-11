@@ -1,0 +1,405 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"h",
+				"h2\tTag"
+			],
+			[
+				"__",
+				"__name__"
+			],
+			[
+				"b",
+				"button\tbutton"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"for",
+				"for\tAttr"
+			],
+			[
+				"lab",
+				"label\tTag"
+			],
+			[
+				"la",
+				"label\tlabel"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"hea",
+				"header\tTag"
+			],
+			[
+				"d",
+				"div\tTag"
+			],
+			[
+				"def",
+				"define"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/app.py",
+			"settings":
+			{
+				"buffer_size": 337,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 298,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 357.0,
+		"last_filter": "ter",
+		"selected_items":
+		[
+			[
+				"ter",
+				"Terminal View: Open Bash Terminal"
+			],
+			[
+				"pacl",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"terminal",
+				"Terminal View: Open Bash Terminal"
+			],
+			[
+				"form",
+				"Snippet: bs3-form-inline"
+			],
+			[
+				"set s",
+				"Set Syntax: Laravel Blade"
+			],
+			[
+				"blade",
+				"Set Syntax: Laravel Blade"
+			],
+			[
+				"bla",
+				"Snippet: Blade @yield"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"ma",
+				"Material Theme: Activate theme"
+			],
+			[
+				"mat",
+				"Material Theme: Activate theme"
+			],
+			[
+				"Package Control: ns",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 479.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app"
+	],
+	"file_history":
+	[
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/register_speaker.html",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/index.html",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/setup.py",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/__init__.py",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/MANIFEST.in",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/schema.sql",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/run.py",
+		"/home/shubham/.config/sublime-text-3/Packages/TerminalView/README.md",
+		"/home/shubham/.config/sublime-text-3/Packages/Terminality/README.md",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/README.md",
+		"/home/shubham/.config/sublime-text-3/Packages/Terminal/readme.md",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/.gitignore",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/speaker-recognition.sublime-project",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/config.py",
+		"/home/shubham/Documents/Projects/sample/app.py",
+		"/home/shubham/Documents/Projects/ok/yolo.py",
+		"/home/shubham/Documents/Projects/sample/proj2/hello.py",
+		"/home/shubham/Documents/Projects/sample/sample_project/app.py",
+		"/home/shubham/Documents/Projects/Social_network_laravel/app/Http/Controllers/UserController.php",
+		"/home/shubham/.cache/.fr-RYqhPF/firefox/run-mozilla.sh",
+		"/home/shubham/.cache/.fr-0D4vRg/firefox/removed-files",
+		"/home/shubham/.cache/.fr-6qWsGX/firefox/run-mozilla.sh",
+		"/home/shubham/Downloads/62FKSJ2UYC.txt",
+		"/home/shubham/Documents/Projects/Social_network_laravel/database/migrations/2017_06_26_140632_create_users_table.php",
+		"/home/shubham/Documents/Projects/Social_network_laravel/resources/views/welcome.blade.php",
+		"/home/shubham/Documents/Projects/Social_network_laravel/resources/views/layouts/master.blade.php",
+		"/home/shubham/Documents/Projects/Social_network_laravel/resources/views/includes/header.blade.php",
+		"/home/shubham/Documents/Projects/Social_network_laravel/.env",
+		"/home/shubham/Documents/Projects/Social_network_laravel/public/index.php",
+		"/home/shubham/Documents/Python_data_science/stopwords",
+		"/var/www/html/credentials.php",
+		"/home/shubham/Documents/Python_data_science/98-0.txt",
+		"/var/www/html/fetchAllTransactions.php",
+		"/home/shubham/Documents/Projects/Blood-bank-management-system/.git/config",
+		"/home/shubham/Downloads/A-small-attempt0(1).in",
+		"/home/shubham/Downloads/A-small-attempt1(1).in",
+		"/home/shubham/Downloads/A-large(1).in"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\n    ",
+			"\n#",
+			"reload"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/app.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 337,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 298,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								281,
+								281
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 62.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 114.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "speaker-recognition.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 247.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
