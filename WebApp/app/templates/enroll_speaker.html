@@ -19,8 +19,12 @@
         </div>
         <div class="d-flex flex-column align-items-center">
           <div class="p-2">
+            <input type="email" class="form-control" id="speakerName" placeholder="Speaker Name">
+          </div>
+          <div class="p-2">
             <button onclick="startRecording(this);">record</button>
             <button onclick="stopRecording(this);" disabled>stop</button>
+<!--             <input type="file" class="form-control-file" onclick="uploadBrowsedFile();"> -->
           </div>
           <div class="p-2"><p>Yolo Yolo Yolo Yolo Yolo Yolo Yolo Yolo Yolo </p></div>
         </div>
@@ -62,33 +66,35 @@
           __log('Stopped recording.');
           
           // create WAV download link using audio data blob
-          createDownloadLink();
+          uploadRecording();
           
           recorder.clear();
         }
 
-        function createDownloadLink() {
-          recorder && recorder.exportWAV(function(blob) {
-            var url = URL.createObjectURL(blob);
-            
-            var li = document.createElement('li');
-            var au = document.createElement('audio');
-            var hf = document.createElement('a');
-            
-            au.controls = true;
-            au.src = url;
-            hf.href = url;
-            hf.download = new Date().toISOString() + '.wav';
-            hf.innerHTML = hf.download;
-            li.appendChild(au);
-            li.appendChild(hf);
-            recordingslist.appendChild(li);
+        // function uploadBrowsedFile() {
+        // }
 
+        function uploadRecording() {
+          recorder && recorder.exportWAV(function(blob) {
+            // var url = URL.createObjectURL(blob);
+            // var li = document.createElement('li');
+            // var au = document.createElement('audio');
+            // var hf = document.createElement('a');
+            // au.controls = true;
+            // au.src = url;
+            // hf.href = url;
+            // hf.download = new Date().toISOString() + '.wav';
+            // hf.innerHTML = hf.download;
+            // li.appendChild(au);
+            // li.appendChild(hf);
+            // recordingslist.appendChild(li);
+
+            var filename = document.getElementById("speakerName").value + ".wav";
             var formData = new FormData();
-            formData.append("file", blob);
+            formData.append("file", blob, filename);
 
             $.ajax({
-               url: "http://localhost:5000/upload",
+               url: "/upload",
                type: "POST",
                data: formData,
                processData: false,

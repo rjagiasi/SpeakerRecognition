@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
 
@@ -24,7 +24,7 @@ def recognizeSpeaker():
 	return render_template('recognize_speaker.html')
 
 
-UPLOAD_FOLDER = '/audio/'
+UPLOAD_FOLDER = './../voices_raw'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
@@ -34,7 +34,7 @@ def upload():
     if request.method == 'POST':
         file = request.files['file']
         app.logger.error('%s logged in successfully', file.filename)
-        #file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
     return 'ok'
 
 

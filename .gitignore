@@ -4,4 +4,6 @@ speechpy/
 python_speech_features/sound_files/*
 voices_processed/
 WebApp/env/
+WebApp/voices_raw/
+WebApp/voices_processed/
 WebApp/app/__pycache__/
