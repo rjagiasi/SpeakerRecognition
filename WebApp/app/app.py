@@ -2,11 +2,16 @@ import os
 from flask import Flask, render_template, request, url_for
 from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
-
+from app.utils import get_all_speakers, preprocess_audio
+# from app.CNN import trainCNN
 
 app = Flask(__name__)
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+
+
+RAW_AUDIO_FOLDER = './../voices_raw'
+app.config['RAW_AUDIO_FOLDER'] = RAW_AUDIO_FOLDER
 
 
 @app.route('/')
@@ -16,7 +21,14 @@ def main():
 
 @app.route('/enrollSpeaker')
 def enrollSpeaker():
-	return render_template('enroll_speaker.html')
+	speakers = get_all_speakers()
+	return render_template('enroll_speaker.html', speakers=speakers)
+
+
+@app.route('/trainModel')
+def trainModel():
+	return 'ok'
+	# https://www.youtube.com/watch?v=f6Bf3gl4hWY
 
 
 @app.route('/recognizeSpeaker')
@@ -24,17 +36,14 @@ def recognizeSpeaker():
 	return render_template('recognize_speaker.html')
 
 
-UPLOAD_FOLDER = './../voices_raw'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-
 @app.route('/upload', methods = ['POST'])
 @cross_origin()
 def upload():
     if request.method == 'POST':
         file = request.files['file']
-        app.logger.error('%s logged in successfully', file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+        file.save(os.path.join(app.config['RAW_AUDIO_FOLDER'], file.filename))
+        preprocess_audio(file.filename)
+        
     return 'ok'
 
 

@@ -1,23 +1,16 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{% extends "layout.html" %}
 
-    <title>Speaker Recognition</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="jumbotron">
-        <div class="d-flex justify-content-center">
-          <h1>Speaker Recognition</h1>
-        </div>
-        <div class="d-flex justify-content-around align-items-center">
-          <p><a class="btn btn-lg btn-success" href="enrollSpeaker" role="button">Enroll Speaker</a></p>
-          <p><a class="btn btn-lg btn-success" href="recognizeSpeaker" role="button">Recognize Speaker</a></p>
-        </div>
-      </div>
+{% block body %}
+<div class="container">
+  <div class="jumbotron">
+    <div class="d-flex justify-content-center">
+      <h1>Speaker Recognition</h1>
     </div>
-    
-  </body>
-</html>
+    <div class="d-flex justify-content-around align-items-center">
+      <p><a class="btn btn-lg btn-primary" href="enrollSpeaker" role="button">Enroll Speaker</a></p>
+      <p><a class="btn btn-lg btn-success" href="trainModel" role="button">Train Model</a></p>
+      <p><a class="btn btn-lg btn-warning" href="recognizeSpeaker" role="button">Recognize Speaker</a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}
