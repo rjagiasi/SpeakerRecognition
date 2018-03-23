@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, url_for
 from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
 from app.utils import get_all_speakers, preprocess_audio
-# from app.CNN import trainCNN
+from app.CNN import trainCNN
 
 app = Flask(__name__)
 CORS(app)
@@ -27,8 +27,10 @@ def enrollSpeaker():
 
 @app.route('/trainModel')
 def trainModel():
+	trainCNN()
 	return 'ok'
 	# https://www.youtube.com/watch?v=f6Bf3gl4hWY
+	# https://blog.keras.io/building-a-simple-keras-deep-learning-rest-api.html
 
 
 @app.route('/recognizeSpeaker')
