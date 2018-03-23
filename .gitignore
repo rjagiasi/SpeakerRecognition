@@ -7,4 +7,5 @@ WebApp/env/
 WebApp/voices_raw/
 WebApp/voices_processed/
 WebApp/temp/
+WebApp/temp/test/
 WebApp/app/__pycache__/
