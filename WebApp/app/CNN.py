@@ -39,7 +39,11 @@ def get_feature_vector(file, directory, no_of_frames, start_frame):
     # print(feature_vectors)
     
     # get speaker index from filename
-    speaker_index = int(file.split("_")[0])
+    speaker_index = file.split("_")[0]
+    if speaker_index[0] == 'M':
+       speaker_index = 5 + int(speaker_index[3:])
+    else:
+       speaker_index = int(speaker_index[3:])
 
     #append speaker index to feature vectors
     np_speaker_index = numpy.array([speaker_index])
@@ -57,7 +61,7 @@ def trainCNN():
     directory = os.path.join(os.getcwd(), '../voices_processed')
     no_of_frames = 800
     start_frame = 10
-    classes = len(os.listdir(directory))
+    classes = len(os.listdir(directory)) + 2
     print(classes)
     dataset = numpy.empty([0, no_of_columns + 1])
     
@@ -118,7 +122,7 @@ def cnn_train(normalized_X, one_hot_labels, classes):
 
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-    model.fit(temp, one_hot_labels, epochs=10, batch_size=100)
+    model.fit(temp, one_hot_labels, epochs=20, batch_size=100)
     return model
 
 
@@ -128,7 +132,7 @@ def test_cnn(model, mean, std_deviation):
     no_of_frames = 50
     test_frames = 50
     start_frame = 1
-    classes = 3
+    classes = 10
     test_model = numpy.empty([0, no_of_columns + 1])
     
     for file in os.listdir(directory):
