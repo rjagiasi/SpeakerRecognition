@@ -1,64 +1,20 @@
-import os
-import numpy as numpy
-import scipy.io.wavfile as wav
-from python_speech_features import mfcc, delta, logfbank
-# from app.feature_extraction import get_feature_vectors
-
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Activation, Flatten, Reshape
-from keras.layers import Convolution1D, MaxPooling1D
-from keras.optimizers import SGD
-from keras.utils import np_utils
-
-from matplotlib import pyplot as plt
-
-
 from flask import current_app as app
 
+import os
+import numpy as numpy
+from keras.models import Sequential
+from keras.layers import Convolution1D, MaxPooling1D, Dense, Dropout, Activation, Flatten, Reshape
+from keras.optimizers import SGD
+from keras.utils import np_utils
+from keras.callbacks import Callback
 
-no_of_features = 13
-no_of_fbank_features = 13
-no_of_columns = (3 * no_of_features) + no_of_fbank_features
-
-
-def get_feature_vector(file, directory, no_of_frames, start_frame):
-
-    (rate,sig) = wav.read(os.path.join(directory, file))
-    fbank_feat = logfbank(sig,rate,nfft=2048)
-    mfcc_feat = mfcc(sig,rate,winlen=0.032,winstep=0.016,numcep=13,nfft=2048)
-
-    d_mfcc_feat = delta(mfcc_feat, 2)
-    dd_mfcc_feat = delta(d_mfcc_feat, 2)
-    
-    mfcc_vectors = mfcc_feat[start_frame:start_frame+no_of_frames,:no_of_features]
-    dmfcc_vectors = d_mfcc_feat[start_frame:start_frame+no_of_frames,:no_of_features]
-    ddmfcc_vectors = dd_mfcc_feat[start_frame:start_frame+no_of_frames,:no_of_features]
-    fbank_vectors = fbank_feat[start_frame:start_frame+no_of_frames,:no_of_fbank_features]
-    
-    feature_vectors = numpy.hstack((mfcc_vectors, dmfcc_vectors, ddmfcc_vectors, fbank_vectors))
-    # print(feature_vectors)
-    
-    # get speaker index from filename
-    speaker_index = file.split("_")[0]
-    if speaker_index[0] == 'M':
-       speaker_index = 5 + int(speaker_index[3:])
-    else:
-       speaker_index = int(speaker_index[3:])
-
-    #append speaker index to feature vectors
-    np_speaker_index = numpy.array([speaker_index])
-    # print(np_speaker_index)
-    temp = numpy.tile(np_speaker_index[numpy.newaxis,:], (feature_vectors.shape[0],1))
-    # print(temp)
-    concatenated_feature_vector = numpy.concatenate((feature_vectors,temp), axis=1)
-    # print(concatenated_feature_vector)
-    return concatenated_feature_vector
-
+from app.feature_extraction import get_feature_vector, no_of_columns
+from app.utils import find_majority
 
 
 def trainCNN():
 
-    directory = os.path.join(os.getcwd(), '../voices_processed')
+    directory = app.config['PROCESSED_AUDIO_FOLDER']
     no_of_frames = 800
     start_frame = 10
     classes = len(os.listdir(directory)) + 2
@@ -91,7 +47,7 @@ def trainCNN():
     print(one_hot_labels)
     
     cnn_model = cnn_train(normalized_X, one_hot_labels, classes)
-    test_cnn(cnn_model, mean, std_deviation)
+    test_cnn(cnn_model, classes, mean, std_deviation)
 
 
 def cnn_train(normalized_X, one_hot_labels, classes):
@@ -122,17 +78,22 @@ def cnn_train(normalized_X, one_hot_labels, classes):
 
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-    model.fit(temp, one_hot_labels, epochs=20, batch_size=100)
+    model.fit(temp, one_hot_labels, epochs=20, batch_size=100, verbose=1, callbacks=[TrainCallback()])
     return model
 
 
-def test_cnn(model, mean, std_deviation):
+class TrainCallback(Callback):
+    def on_epoch_end(self, epoch, logs={}):
+        print(epoch)
+        # app.config['progress_val'] = (epoch + 1) * 5
 
-    directory = os.path.join(os.getcwd(), '../temp/test')
+
+def test_cnn(model, classes, mean, std_deviation):
+
+    directory = app.config['TEST_FOLDER']
     no_of_frames = 50
     test_frames = 50
     start_frame = 1
-    classes = 10
     test_model = numpy.empty([0, no_of_columns + 1])
     
     for file in os.listdir(directory):
@@ -176,8 +137,7 @@ def test_cnn(model, mean, std_deviation):
         print(int(t), p, m[0])
     
 #     for t, p in zip(test_Y.T[0], indices):
-#         print(int(t), p)
-    
+#         print(int(t), p)  
     
     diff = predicted_Y - test_Y[::test_frames].T[0]
     maj_diff = numpy.array(majority)[:, 0] - test_Y[::test_frames].T[0]
@@ -186,22 +146,10 @@ def test_cnn(model, mean, std_deviation):
     denominator = len(predicted_Y)
     
     numerator2 = sum(x == 0 for x in maj_diff)
-    denominator2 = len(maj_diff)
-    
+    denominator2 = len(maj_diff)  
 
     print("Accuracy prob_diff: {} of {} - {}".format(numerator, denominator, numerator/denominator))
     
     print("Accuracy maj_diff: {} of {} - {}".format(numerator2, denominator2, numerator2/denominator2))
 
 
-def find_majority(k):
-    myMap = {}
-    maximum = ( '', 0 ) # (occurring element, occurrences)
-    for n in k:
-        if n in myMap: myMap[n] += 1
-        else: myMap[n] = 1
-
-        # Keep track of maximum on the go
-        if myMap[n] > maximum[1]: maximum = (n,myMap[n])
-
-    return maximum

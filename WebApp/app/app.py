@@ -1,5 +1,6 @@
 import os
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, Response
+import time
 from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
 from app.utils import get_all_speakers, preprocess_audio
@@ -7,11 +8,7 @@ from app.CNN import trainCNN
 
 app = Flask(__name__)
 CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
-
-
-RAW_AUDIO_FOLDER = './../voices_raw'
-app.config['RAW_AUDIO_FOLDER'] = RAW_AUDIO_FOLDER
+app.config.from_pyfile('config.py')
 
 
 @app.route('/')
@@ -28,9 +25,19 @@ def enrollSpeaker():
 @app.route('/trainModel')
 def trainModel():
 	trainCNN()
-	return 'ok'
+	return render_template('index.html')
 	# https://www.youtube.com/watch?v=f6Bf3gl4hWY
 	# https://blog.keras.io/building-a-simple-keras-deep-learning-rest-api.html
+
+
+# app.config['progress_val'] = 0
+# @app.route('/progress')
+# def progress():
+#     def generate():
+#         val = app.config['progress_val']
+#         while val <= 100:
+#             yield "data:" + str(val) + "\n\n"
+#     return Response(generate(), mimetype= 'text/event-stream')
 
 
 @app.route('/recognizeSpeaker')
