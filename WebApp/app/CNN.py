@@ -1,6 +1,8 @@
 from flask import current_app as app
 
 import os
+# import requests
+
 import numpy as numpy
 from keras.models import Sequential
 from keras.layers import Convolution1D, MaxPooling1D, Dense, Dropout, Activation, Flatten, Reshape
@@ -8,13 +10,19 @@ from keras.optimizers import SGD
 from keras.utils import np_utils
 from keras.callbacks import Callback
 
-from app.feature_extraction import get_feature_vector, no_of_columns
+from app.feature_extraction import get_feature_vectors_with_index, get_feature_vectors, no_of_columns
 from app.utils import find_majority
 
 
-def trainCNN():
+cnn_model = None
+classes = None
+mean = None
+std_deviation = None
 
-    directory = app.config['PROCESSED_AUDIO_FOLDER']
+
+def trainCNN():
+    global cnn_model, classes, mean, std_deviation
+    directory = app.config['PROCESSED_TRAIN_FOLDER']
     no_of_frames = 800
     start_frame = 10
     classes = len(os.listdir(directory)) + 2
@@ -22,7 +30,7 @@ def trainCNN():
     dataset = numpy.empty([0, no_of_columns + 1])
     
     for file in os.listdir(directory):
-        dataset = numpy.concatenate((dataset, get_feature_vector(file, directory, no_of_frames, start_frame)), axis=0)
+        dataset = numpy.concatenate((dataset, get_feature_vectors_with_index(file, directory, no_of_frames, start_frame)), axis=0)
 
     my_data = dataset
     numpy.random.shuffle(my_data)
@@ -47,7 +55,9 @@ def trainCNN():
     print(one_hot_labels)
     
     cnn_model = cnn_train(normalized_X, one_hot_labels, classes)
-    test_cnn(cnn_model, classes, mean, std_deviation)
+    # app.config['CNN_MODEL'] = cnn_model
+    # app.config['CLASSES'] = classes
+    # test_cnn(cnn_model, classes, mean, std_deviation)
 
 
 def cnn_train(normalized_X, one_hot_labels, classes):
@@ -78,26 +88,61 @@ def cnn_train(normalized_X, one_hot_labels, classes):
 
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-    model.fit(temp, one_hot_labels, epochs=20, batch_size=100, verbose=1, callbacks=[TrainCallback()])
+    model.fit(temp, one_hot_labels, epochs=10, batch_size=100, verbose=1, callbacks=[TrainCallback()])
     return model
 
 
 class TrainCallback(Callback):
     def on_epoch_end(self, epoch, logs={}):
         print(epoch)
-        # app.config['progress_val'] = (epoch + 1) * 5
+
+
+def testCNN():
+    # model = app.config['CNN_MODEL']
+    global cnn_model, classes, mean, std_deviation
+    model = cnn_model
+    directory = app.config['PROCESSED_TEST_FOLDER']
+    no_of_frames = 50
+    test_frames = 50
+    start_frame = 1
+    test_model = numpy.empty([0, no_of_columns])
+    
+    test_model = numpy.concatenate((test_model, get_feature_vectors('test.wav', directory, no_of_frames, start_frame)), axis=0)
+    
+    test_X = test_model
+
+    normalized_test_X = (test_X - mean) / std_deviation
+    
+    test_X = test_X.reshape(test_X.shape[0], no_of_columns, 1)
+    normalized_test_X = normalized_test_X.reshape(normalized_test_X.shape[0], no_of_columns, 1)
+    
+    predictions = model.predict(normalized_test_X)
+
+    b = [sum(predictions[current: current+test_frames]) for current in range(0, len(predictions), test_frames)]
+    predicted_Y = []
+    for row in b:
+        predicted_Y.append(row.argmax(axis=0))
+    
+    indices = numpy.argmax(predictions, axis=1)
+    majority = []
+    
+    for i in range(0, len(indices), test_frames):
+        majority.append(find_majority(indices[i:i + test_frames]))
+
+    for p, m in zip(predicted_Y, majority):
+        print(p, m[0])
 
 
 def test_cnn(model, classes, mean, std_deviation):
 
-    directory = app.config['TEST_FOLDER']
+    directory = app.config['PROCESSED_TEST_FOLDER']
     no_of_frames = 50
     test_frames = 50
     start_frame = 1
     test_model = numpy.empty([0, no_of_columns + 1])
     
     for file in os.listdir(directory):
-        test_model = numpy.concatenate((test_model, get_feature_vector(file, directory, no_of_frames, start_frame)), axis=0)
+        test_model = numpy.concatenate((test_model, get_feature_vectors_with_index(file, directory, no_of_frames, start_frame)), axis=0)
     
 #     print(test_model.shape)
 

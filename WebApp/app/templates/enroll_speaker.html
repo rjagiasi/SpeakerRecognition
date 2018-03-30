@@ -85,6 +85,7 @@
 
         var filename = document.getElementById("speakerName").value + ".wav";
         var formData = new FormData();
+        formData.append("file_type", "train");
         formData.append("file", blob, filename);
 
         $.ajax({

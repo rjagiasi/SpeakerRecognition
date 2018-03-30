@@ -2,7 +2,10 @@ import os
 
 CORS_HEADERS = 'Content-Type'
 
-RAW_AUDIO_FOLDER = os.path.join(os.getcwd(), '../voices_raw')
-PROCESSED_AUDIO_FOLDER = os.path.join(os.getcwd(), '../voices_processed')
+RAW_TRAIN_FOLDER = os.path.join(os.getcwd(), '../train_data/voices_raw')
+PROCESSED_TRAIN_FOLDER = os.path.join(os.getcwd(), '../train_data/voices_processed')
 
-TEST_FOLDER = os.path.join(os.getcwd(), '../temp/test')
+RAW_TEST_FOLDER = os.path.join(os.getcwd(), '../test_data/voices_raw')
+PROCESSED_TEST_FOLDER = os.path.join(os.getcwd(), '../test_data/voices_processed')
+
+BASE_URL = 'https://localhost:5000'

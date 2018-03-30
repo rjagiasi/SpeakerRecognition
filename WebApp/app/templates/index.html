@@ -8,26 +8,53 @@
     </div>
     <div class="d-flex justify-content-around align-items-center">
       <p><a class="btn btn-lg btn-primary" href="enrollSpeaker" role="button">Enroll Speaker</a></p>
-      <p><a class="btn btn-lg btn-success" href="trainModel" role="button">Train Model</a></p>
+      <p><a class="btn btn-lg btn-success" id="trainButton" role="button">Train Model</a></p>
       <p><a class="btn btn-lg btn-warning" href="recognizeSpeaker" role="button">Recognize Speaker</a></p>
     </div>
-    <div class="progress">
-      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-        <span class="progress-bar-label">0%</span>
+  </div>
+</div>
+
+<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Please wait...</h4>
+      </div>
+      <div class="modal-body">
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-animated progress-bar-striped active" role="progressbar"
+          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<!-- 
+
 <script>
-  var source = new EventSource("/progress");
-  source.onmessage = function(event) {
-    $('.progress-bar').css('width', event.data+'%').attr('aria-valuenow', event.data);
-    $('.progress-bar-label').text(event.data+'%');
-    if(event.data == 100){
-      source.close()
-    }
+
+  $("#trainButton").click(function(){
+    showPleaseWait();
+    $.ajax({
+      url: '/trainModel',
+      type:'POST',
+      success: function(response){
+        hidePleaseWait();
+      },
+      failure: function(jqXHR, textStatus, errorThrown){
+          console.log(textStatus);
+      }
+    });    
+  });
+
+  function showPleaseWait() {
+    $("#pleaseWaitDialog").modal("show");
   }
+
+  function hidePleaseWait() {
+    $("#pleaseWaitDialog").modal("hide");
+  }
+
 </script>
- -->
+
 {% endblock %}

@@ -3,8 +3,8 @@ from flask import Flask, render_template, request, url_for, Response
 import time
 from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
-from app.utils import get_all_speakers, preprocess_audio
-from app.CNN import trainCNN
+from app.utils import get_all_speakers, preprocess_audio, remove_test_file
+from app.CNN import trainCNN, testCNN
 
 app = Flask(__name__)
 CORS(app)
@@ -22,22 +22,13 @@ def enrollSpeaker():
 	return render_template('enroll_speaker.html', speakers=speakers)
 
 
-@app.route('/trainModel')
+@app.route('/trainModel', methods = ['POST'])
 def trainModel():
-	trainCNN()
+	if request.method == 'POST':
+		trainCNN()
 	return render_template('index.html')
 	# https://www.youtube.com/watch?v=f6Bf3gl4hWY
 	# https://blog.keras.io/building-a-simple-keras-deep-learning-rest-api.html
-
-
-# app.config['progress_val'] = 0
-# @app.route('/progress')
-# def progress():
-#     def generate():
-#         val = app.config['progress_val']
-#         while val <= 100:
-#             yield "data:" + str(val) + "\n\n"
-#     return Response(generate(), mimetype= 'text/event-stream')
 
 
 @app.route('/recognizeSpeaker')
@@ -49,10 +40,16 @@ def recognizeSpeaker():
 @cross_origin()
 def upload():
     if request.method == 'POST':
+        file_type = request.form['file_type']
         file = request.files['file']
-        file.save(os.path.join(app.config['RAW_AUDIO_FOLDER'], file.filename))
-        preprocess_audio(file.filename)
-        
+        if file_type == 'train':
+            file.save(os.path.join(app.config['RAW_TRAIN_FOLDER'], file.filename))
+            preprocess_audio(file.filename, file_type)
+        else:
+            file.save(os.path.join(app.config['RAW_TEST_FOLDER'], file.filename))
+            preprocess_audio(file.filename, file_type)
+            testCNN()
+            remove_test_file()
     return 'ok'
 
 

@@ -4,8 +4,28 @@
 		"selected_items":
 		[
 			[
+				"voi",
+				"voices_processed"
+			],
+			[
+				"feature",
+				"feature_vectors"
+			],
+			[
+				"hide",
+				"hidePleaseWait"
+			],
+			[
+				"show",
+				"showPleaseWait"
+			],
+			[
 				"progress",
 				"progress_val"
+			],
+			[
+				"progr",
+				"progress-bar \tBootstrap 4 Class"
 			],
 			[
 				"progres",
@@ -96,37 +116,10 @@
 	"buffers":
 	[
 		{
-			"file": "app/app.py",
+			"file": "/home/shubham/Documents/Projects/SpeakerRecognition/.gitignore",
 			"settings":
 			{
-				"buffer_size": 1539,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/CNN.py",
-			"settings":
-			{
-				"buffer_size": 4897,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/templates/index.html",
-			"settings":
-			{
-				"buffer_size": 1169,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/templates/layout.html",
-			"settings":
-			{
-				"buffer_size": 553,
+				"buffer_size": 405,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -232,23 +225,21 @@
 	},
 	"expanded_folders":
 	[
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates"
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp"
 	],
 	"file_history":
 	[
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/enroll_speaker.html",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/utils.py",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/feature_extraction.py",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/config.py",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/config.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/app.py",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/feature_extraction.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/CNN.py",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/utils.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/.gitignore",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/layout.html",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/index.html",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/recognize_speaker.html",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/enroll_speaker.html",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/index.html",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/config.py",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/layout.html",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/config.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/temp/test_preprocessing.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/voices_raw/yobro.wav",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/voices_raw/yobrodawdaw.wav",
@@ -337,123 +328,35 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/app.py",
+					"file": "/home/shubham/Documents/Projects/SpeakerRecognition/.gitignore",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1539,
+						"buffer_size": 405,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								805,
-								805
+								130,
+								130
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
+							"syntax": "Packages/zzz A File Icon zzz/aliases/Shell Script (Git).sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 126.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/CNN.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4897,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2594,
-								2594
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 924.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/templates/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1169,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								849,
-								849
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/templates/layout.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 553,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								553,
-								553
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
 					"type": "text"
 				}
 			]

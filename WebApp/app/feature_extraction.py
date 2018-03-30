@@ -11,8 +11,7 @@ no_of_fbank_features = 13
 no_of_columns = (3 * no_of_features) + no_of_fbank_features
 
 
-def get_feature_vector(file, directory, no_of_frames, start_frame):
-
+def get_feature_vectors(file, directory, no_of_frames, start_frame):
     (rate,sig) = wav.read(os.path.join(directory, file))
     fbank_feat = logfbank(sig,rate,nfft=2048)
     mfcc_feat = mfcc(sig,rate,winlen=0.032,winstep=0.016,numcep=13,nfft=2048)
@@ -26,6 +25,12 @@ def get_feature_vector(file, directory, no_of_frames, start_frame):
     fbank_vectors = fbank_feat[start_frame:start_frame+no_of_frames,:no_of_fbank_features]
     
     feature_vectors = numpy.hstack((mfcc_vectors, dmfcc_vectors, ddmfcc_vectors, fbank_vectors))
+    return feature_vectors
+
+
+def get_feature_vectors_with_index(file, directory, no_of_frames, start_frame):
+
+    feature_vectors = get_feature_vectors(file, directory, no_of_frames, start_frame)
     # print(feature_vectors)
     
     # get speaker index from filename

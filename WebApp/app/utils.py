@@ -4,10 +4,14 @@ import os
 import scipy.io.wavfile as wav
 
 
-def preprocess_audio(file):
-    source = app.config['RAW_AUDIO_FOLDER']
+def preprocess_audio(file, file_type):
+    if file_type == 'train':
+        source = app.config['RAW_TRAIN_FOLDER']
+        dest = app.config['PROCESSED_TRAIN_FOLDER']
+    else:
+        source = app.config['RAW_TEST_FOLDER']
+        dest = app.config['PROCESSED_TEST_FOLDER']
     source = os.path.join(source, file)
-    dest = app.config['PROCESSED_AUDIO_FOLDER']
     dest = os.path.join(dest, file)
     (rate,sig) = wav.read(source)
 
@@ -18,9 +22,16 @@ def preprocess_audio(file):
         cmd = "sox {} {} silence 1 0.3 -55d -1 0.1 1% lowpass 3500".format(source, dest)
         os.system(cmd);
 
+
+def remove_test_file():
+    file_path = os.path.join(app.config['PROCESSED_TEST_FOLDER'], 'test.wav')
+    cmd = "rm {}".format(file_path)
+    os.system(cmd);
+
+
 def get_all_speakers():
     speakers = []
-    directory = os.listdir(app.config['PROCESSED_AUDIO_FOLDER'])
+    directory = os.listdir(app.config['PROCESSED_TRAIN_FOLDER'])
     for file in directory:
     	speakers.append(file)
     return speakers
