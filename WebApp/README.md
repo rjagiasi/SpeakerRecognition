@@ -15,6 +15,8 @@ virtualenv env
 pip install Flask
 
 # serve files at localhost:5000
+* activate environment in WebApp folder
+* run app.py in app folder as follows
 export FLASK_APP=app.py
 flask run
 ```

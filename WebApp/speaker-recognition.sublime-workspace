@@ -115,15 +115,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/home/shubham/Documents/Projects/SpeakerRecognition/.gitignore",
-			"settings":
-			{
-				"buffer_size": 405,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -225,15 +216,17 @@
 	},
 	"expanded_folders":
 	[
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp"
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app"
 	],
 	"file_history":
 	[
+		"/home/shubham/Documents/Projects/SpeakerRecognition/.gitignore",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/README.md",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/app.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/feature_extraction.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/CNN.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/utils.py",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/.gitignore",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/recognize_speaker.html",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/enroll_speaker.html",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/index.html",
@@ -253,7 +246,6 @@
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/upload.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/voices_raw/nobita.wav",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/static/recorder.js",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/README.md",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/register_speaker.html",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/setup.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/__init__.py",
@@ -328,37 +320,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/home/shubham/Documents/Projects/SpeakerRecognition/.gitignore",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 405,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								130,
-								130
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/zzz A File Icon zzz/aliases/Shell Script (Git).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
