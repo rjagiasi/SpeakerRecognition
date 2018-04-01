@@ -11,6 +11,7 @@
         <div class="p-2">
           <button onclick="startRecording(this);">record</button>
           <button onclick="stopRecording(this);" disabled>stop</button>
+          <span id="stopWatch"></span>
         </div>
       </div>
     </div>
@@ -28,6 +29,7 @@
 
     var audio_context;
     var recorder;
+    var stopWatch;
 
     function startUserMedia(stream) {
       var input = audio_context.createMediaStreamSource(stream);
@@ -45,10 +47,18 @@
       button.disabled = true;
       button.nextElementSibling.disabled = false;
       __log('Recording...');
+      clock = 0
+      stopWatch = setInterval(function () {
+        document.getElementById("stopWatch").innerText = clock++;
+        if (clock > 10) {
+          button.nextElementSibling.disabled = false;
+        }
+      }, 1000);
     }
 
     function stopRecording(button) {
       recorder && recorder.stop();
+      clearInterval(stopWatch);
       button.disabled = true;
       button.previousElementSibling.disabled = false;
       __log('Stopped recording.');

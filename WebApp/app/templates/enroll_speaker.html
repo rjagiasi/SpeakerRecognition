@@ -10,10 +10,12 @@
       <div class="d-flex flex-column align-items-center">
         <div class="p-2">
           <input type="email" class="form-control" id="speakerName" placeholder="Speaker Name">
+          <span id="nameRequired"></span>
         </div>
         <div class="p-2">
           <button onclick="startRecording(this);">record</button>
           <button onclick="stopRecording(this);" disabled>stop</button>
+          <span id="stopWatch"></span>
         </div>
         <div class="p-2"><p>Yolo Yolo Yolo Yolo Yolo Yolo Yolo Yolo Yolo </p></div>
       </div>
@@ -37,6 +39,7 @@
 
     var audio_context;
     var recorder;
+    var stopWatch;
 
     function startUserMedia(stream) {
       var input = audio_context.createMediaStreamSource(stream);
@@ -50,19 +53,34 @@
     }
 
     function startRecording(button) {
+      if(document.getElementById("speakerName").value == "") {
+        console.log("herre");
+        document.getElementById("nameRequired").innerText = "Name required";
+        return;
+      }
+      document.getElementById("nameRequired").innerText = "";
       recorder && recorder.record();
       button.disabled = true;
-      button.nextElementSibling.disabled = false;
       __log('Recording...');
+      clock = 0
+      stopWatch = setInterval(function () {
+        document.getElementById("stopWatch").innerText = clock++;
+        if (clock > 10) {
+          button.nextElementSibling.disabled = false;
+        }
+      }, 1000);
     }
 
     function stopRecording(button) {
       recorder && recorder.stop();
+      clearInterval(stopWatch);
       button.disabled = true;
       button.previousElementSibling.disabled = false;
       __log('Stopped recording.');
       
-      uploadRecording();
+      if(confirm("Save this recording?")){
+        uploadRecording();
+      }
       
       recorder.clear();
     }

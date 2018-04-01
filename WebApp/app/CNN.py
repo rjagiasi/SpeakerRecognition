@@ -131,6 +131,7 @@ def testCNN():
 
     for p, m in zip(predicted_Y, majority):
         print(p, m[0])
+        
 
 
 def test_cnn(model, classes, mean, std_deviation):

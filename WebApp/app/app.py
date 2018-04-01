@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, url_for, Response
 import time
 from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
-from app.utils import get_all_speakers, preprocess_audio, remove_test_file
+from app.utils import get_all_speakers, preprocess_all, preprocess_test, remove_test_file
 from app.CNN import trainCNN, testCNN
 
 app = Flask(__name__)
@@ -24,9 +24,10 @@ def enrollSpeaker():
 
 @app.route('/trainModel', methods = ['POST'])
 def trainModel():
-	if request.method == 'POST':
-		trainCNN()
-	return render_template('index.html')
+    if request.method == 'POST':
+        preprocess_all()
+        trainCNN()
+    return render_template('index.html')
 	# https://www.youtube.com/watch?v=f6Bf3gl4hWY
 	# https://blog.keras.io/building-a-simple-keras-deep-learning-rest-api.html
 
@@ -44,10 +45,9 @@ def upload():
         file = request.files['file']
         if file_type == 'train':
             file.save(os.path.join(app.config['RAW_TRAIN_FOLDER'], file.filename))
-            preprocess_audio(file.filename, file_type)
         else:
             file.save(os.path.join(app.config['RAW_TEST_FOLDER'], file.filename))
-            preprocess_audio(file.filename, file_type)
+            preprocess_test(file.filename)
             testCNN()
             remove_test_file()
     return 'ok'
