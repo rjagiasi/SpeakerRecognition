@@ -245,15 +245,15 @@
 	],
 	"file_history":
 	[
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/CNN.py",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/feature_extraction.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/app.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/index.html",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/enroll_speaker.html",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/recognize_speaker.html",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/CNN.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/utils.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/.gitignore",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/README.md",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/feature_extraction.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/config.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/layout.html",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/config.py",

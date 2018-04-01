@@ -34,11 +34,11 @@ def get_feature_vectors_with_index(file, directory, no_of_frames, start_frame):
     # print(feature_vectors)
     
     # get speaker index from filename
-    speaker_index = file.split("_")[0]
-    if speaker_index[0] == 'M':
-       speaker_index = 5 + int(speaker_index[3:])
-    else:
-       speaker_index = int(speaker_index[3:])
+    speaker_index = int(file.split("_")[0])
+    # if speaker_index[0] == 'M':
+    #    speaker_index = 5 + int(speaker_index[3:])
+    # else:
+    #    speaker_index = int(speaker_index[3:])
 
     #append speaker index to feature vectors
     np_speaker_index = numpy.array([speaker_index])

@@ -94,7 +94,7 @@ def cnn_train(normalized_X, one_hot_labels, classes):
 
 class TrainCallback(Callback):
     def on_epoch_end(self, epoch, logs={}):
-        print(epoch)
+        # print(epoch)
 
 
 def testCNN():
