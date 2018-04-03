@@ -47,8 +47,10 @@
       // Uncomment if you want the audio to feedback directly
       //input.connect(audio_context.destination);
       //__log('Input connected to audio context destination.');
-      
-      recorder = new Recorder(input);
+      var config = {
+        numChannels: 1,
+      };
+      recorder = new Recorder(input, config);
       __log('Recorder initialised.');
     }
 

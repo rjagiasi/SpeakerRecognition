@@ -237,19 +237,17 @@
 	"expanded_folders":
 	[
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/test_data",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/train_data",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/train_data/voices_raw"
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app"
 	],
 	"file_history":
 	[
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/CNN.py",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/feature_extraction.py",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/app.py",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/index.html",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/train_data/voices_processed/000_a.wav",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/enroll_speaker.html",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/app.py",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/CNN.py",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/train_data/voices_raw/aaa.wav",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/feature_extraction.py",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/index.html",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/recognize_speaker.html",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/utils.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/.gitignore",
