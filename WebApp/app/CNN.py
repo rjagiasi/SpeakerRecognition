@@ -11,14 +11,14 @@ from keras.utils import np_utils
 from keras.callbacks import Callback
 
 from app.feature_extraction import get_feature_vectors_with_index, get_feature_vectors, no_of_columns
-from app.utils import find_majority
+from app.utils import find_majority, get_test_speaker_name
 
 
 cnn_model = None
 classes = None
 mean = None
 std_deviation = None
-
+speaker_name = "None"
 
 def trainCNN():
     global cnn_model, classes, mean, std_deviation
@@ -99,7 +99,7 @@ class TrainCallback(Callback):
 
 def testCNN():
     # model = app.config['CNN_MODEL']
-    global cnn_model, classes, mean, std_deviation
+    global cnn_model, classes, mean, std_deviation, speaker_name
     model = cnn_model
     directory = app.config['PROCESSED_TEST_FOLDER']
     no_of_frames = 50
@@ -131,7 +131,9 @@ def testCNN():
 
     for p, m in zip(predicted_Y, majority):
         print(p, m[0])
-        
+
+    speaker_name = get_test_speaker_name(p)
+    print(speaker_name)
 
 
 def test_cnn(model, classes, mean, std_deviation):
@@ -199,3 +201,10 @@ def test_cnn(model, classes, mean, std_deviation):
     print("Accuracy maj_diff: {} of {} - {}".format(numerator2, denominator2, numerator2/denominator2))
 
 
+def get_speaker_name():
+    global speaker_name
+    return speaker_name
+
+def reset_speaker_name():
+    global speaker_name
+    speaker_name = "None"

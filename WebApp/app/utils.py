@@ -30,6 +30,7 @@ def preprocess_test(file):
 
 
 def preprocess_audio(source, dest):
+    print(source)
     (rate,sig) = wav.read(source)
     if int(rate) > 8000:
         cmd = "sox {} {} silence 1 0.3 -45d -1 0.1 1% lowpass 7000".format(source, dest)
@@ -64,3 +65,13 @@ def find_majority(k):
         if myMap[n] > maximum[1]: maximum = (n,myMap[n])
 
     return maximum
+
+def get_test_speaker_name(index):
+    source = app.config['PROCESSED_TRAIN_FOLDER']
+    speaker_dict = {}
+    for file in os.listdir(source):
+        split_name = file.split("_")
+        print(split_name)
+        speaker_dict[int(split_name[0])] = split_name[1].split(".")[0]
+
+    return speaker_dict[index]

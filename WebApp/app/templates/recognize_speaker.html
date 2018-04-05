@@ -95,9 +95,23 @@
            data: formData,
            processData: false,
            contentType: false,
+           async: false,
            success: function(response) {
                // .. do something
                __log('Pathavla');
+               
+               $.ajax({
+                 url: '/get_speaker_name',
+                 type: 'GET',
+                 dataType: 'json',
+               })
+               .done(function(data) {
+                 __log('Speaker Identified - ' + data['name']);
+               })
+               .fail(function() {
+                 console.log("error");
+               });
+               
            },
            error: function(jqXHR, textStatus, errorMessage) {
                console.log(errorMessage); // Optional

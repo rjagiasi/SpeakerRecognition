@@ -8,10 +8,8 @@ WebApp/voices_raw/
 WebApp/voices_processed/
 WebApp/temp/*
 WebApp/temp/test/*
-WebApp/train_data/*
 WebApp/train_data/voices_raw/*
 WebApp/train_data/voices_processed/*
-WebApp/test_data/*
 WebApp/test_data/voices_raw/*
 WebApp/test_data/voices_processed/*
 WebApp/app/__pycache__/
