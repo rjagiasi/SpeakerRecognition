@@ -17,7 +17,7 @@
           <button onclick="stopRecording(this);" disabled>stop</button>
           <span id="stopWatch"></span>
         </div>
-        <div class="p-2"><p>Yolo Yolo Yolo Yolo Yolo Yolo Yolo Yolo Yolo </p></div>
+        <div class="p-2"><p>Read some text (a paragraph from a newspaper/book) or sing (because why not :P) for a minute </p><p> Wait for sent message (Pathavla) in log... dont hit back! </p></div>
       </div>
     </div>
 
@@ -67,7 +67,7 @@
       clock = 0
       stopWatch = setInterval(function () {
         document.getElementById("stopWatch").innerText = clock++;
-        if (clock > 10) {
+        if (clock > 50) {
           button.nextElementSibling.disabled = false;
         }
       }, 1000);
