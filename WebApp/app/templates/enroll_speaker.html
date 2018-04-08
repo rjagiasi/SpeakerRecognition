@@ -109,19 +109,22 @@
         formData.append("file", blob, filename);
 
         $.ajax({
-           url: "/upload",
-           type: "POST",
-           data: formData,
-           processData: false,
-           contentType: false,
-           success: function(response) {
-               // .. do something
-               __log('Pathavla');
-           },
-           error: function(jqXHR, textStatus, errorMessage) {
-               console.log(errorMessage); // Optional
-               __log(textStatus + errorMessage);
-           }
+          url: "/upload",
+          type: "POST",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function(response) {
+            // .. do something
+            __log('Pathavla');
+          },
+          error: function(jqXHR, textStatus, errorMessage) {
+            console.log(errorMessage); // Optional
+            __log(textStatus + errorMessage);
+            if(confirm("Some error occured while upload. Retry?")){
+              uploadRecording();
+            }
+          }
         });
       });
     }

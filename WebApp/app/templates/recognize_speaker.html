@@ -116,6 +116,9 @@
            error: function(jqXHR, textStatus, errorMessage) {
                console.log(errorMessage); // Optional
                __log(textStatus + errorMessage);
+               if(confirm("Some error occured while upload. Retry?")){
+                uploadRecording();
+              }
            }
         });
       });
