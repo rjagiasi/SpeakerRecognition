@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, request, url_for, Response
-import time
+import requests
 from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
 from app.utils import get_all_speakers, preprocess_all, preprocess_test, remove_test_file
@@ -19,8 +19,12 @@ def main():
 
 @app.route('/enrollSpeaker')
 def enrollSpeaker():
-	speakers = get_all_speakers()
-	return render_template('enroll_speaker.html', speakers=speakers)
+    speakers = get_all_speakers()
+    # random_para = []
+    # for i in range(1):
+    #     r = requests.get("http://pastehtml.com/view/1c0gckz.html")
+    #     print(r.json())
+    return render_template('enroll_speaker.html', speakers=speakers)
 
 
 @app.route('/get_speaker_name')

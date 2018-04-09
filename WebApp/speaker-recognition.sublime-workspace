@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"ran",
+				"range\trange"
+			],
+			[
 				"forma",
 				"format\tformat"
 			],
@@ -136,10 +140,29 @@
 	"buffers":
 	[
 		{
-			"file": "app/__init__.py",
+			"file": "app/templates/enroll_speaker.html",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 4831,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/templates/recognize_speaker.html",
+			"settings":
+			{
+				"buffer_size": 4541,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/app.py",
+			"settings":
+			{
+				"buffer_size": 2214,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -245,10 +268,14 @@
 	"expanded_folders":
 	[
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app"
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/train_data",
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/train_data/voices_raw"
 	],
 	"file_history":
 	[
+		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/__init__.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/train_data/voices_processed/000_a.wav",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/enroll_speaker.html",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/app.py",
@@ -278,7 +305,6 @@
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/static/recorder.js",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/templates/register_speaker.html",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/setup.py",
-		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/__init__.py",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/MANIFEST.in",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/app/schema.sql",
 		"/home/shubham/Documents/Projects/SpeakerRecognition/WebApp/run.py",
@@ -350,32 +376,94 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/__init__.py",
+					"file": "app/templates/enroll_speaker.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 4831,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3963,
+								3963
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1218.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/templates/recognize_speaker.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4541,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3637,
+								3637
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/app.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2214,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								718,
+								718
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 42.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

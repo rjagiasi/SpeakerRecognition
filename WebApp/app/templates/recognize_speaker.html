@@ -37,15 +37,16 @@
       // Uncomment if you want the audio to feedback directly
       //input.connect(audio_context.destination);
       //__log('Input connected to audio context destination.');
-      
-      recorder = new Recorder(input);
+      var config = {
+        numChannels: 1,
+      };
+      recorder = new Recorder(input, config);
       __log('Recorder initialised.');
     }
 
     function startRecording(button) {
       recorder && recorder.record();
       button.disabled = true;
-      button.nextElementSibling.disabled = false;
       __log('Recording...');
       clock = 0
       stopWatch = setInterval(function () {
