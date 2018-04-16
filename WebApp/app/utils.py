@@ -33,7 +33,7 @@ def preprocess_audio(source, dest):
     print(source)
     (rate,sig) = wav.read(source)
     if int(rate) > 8000:
-        cmd = "sox {} {} silence 1 0.3 -45d -1 0.1 1% lowpass 5500".format(source, dest)
+        cmd = "sox {} {} silence 1 0.3 -45d -1 0.1 1% lowpass 7000".format(source, dest)
         os.system(cmd);
     else:
         cmd = "sox {} {} silence 1 0.3 -55d -1 0.1 1% lowpass 3500".format(source, dest)
